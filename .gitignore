@@ -1,0 +1,9 @@
+.env
+# secrets/
+target/
+.terraform/
+*.tfstate
+*.tfstate.backup
+*.tfvars
+*.hcl
+tool

@@ -1,0 +1,55 @@
+---
+- name: Install Raspberry Pi
+  hosts: all
+  become: yes
+
+  tasks:
+      - name: Update
+        apt: update_cache=yes
+
+      - name: Upgrade
+        apt: upgrade=dist
+
+      - name: Install apt-transport-https
+        ansible.builtin.apt:
+            name:
+                - apt-transport-https
+                - ca-certificates
+                - lsb-release
+                - gnupg
+            state: latest
+            update_cache: true
+
+      - name: Add signing key - Docker
+        ansible.builtin.apt_key:
+            url: 'https://download.docker.com/linux/{{ ansible_distribution | lower }}/gpg'
+            state: present
+
+      - name: Add repository into sources list - Docker
+        ansible.builtin.apt_repository:
+            repo: 'deb [arch={{ ansible_architecture }}] https://download.docker.com/linux/{{ ansible_distribution | lower }} {{ ansible_distribution_release }} stable'
+            state: present
+            filename: docker
+
+      - name: Install Docker
+        ansible.builtin.apt:
+            name:
+                - docker
+                - docker.io
+                - docker-compose
+                - docker-registry
+            state: latest
+            update_cache: true
+
+      - name: Install Terraform
+        ansible.builtin.get_url:
+            url: 'https://releases.hashicorp.com/terraform/1.4.6/terraform_1.4.6_linux_arm64.zip'
+            dest: /tmp/terraform.zip
+            mode: 0755
+
+      - name: Unzip Terraform
+        ansible.builtin.unarchive:
+            src: /tmp/terraform.zip
+            dest: /usr/local/bin
+            remote_src: yes
+            mode: 0755
