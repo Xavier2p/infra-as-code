@@ -10,9 +10,6 @@ resource "docker_container" "pi_hole" {
     "TZ=Europe/Paris",
     "WEBPASSWORD=pihole",
   ]
-  capabilities {
-    add = ["NET_ADMIN"]
-  }
   ports {
     internal = 53
     external = 53
@@ -31,7 +28,7 @@ resource "docker_container" "pi_hole" {
 
   ports {
     internal = 80
-    external = 8080
+    external = 1010
   }
   volumes {
     container_path = "/etc/pihole"
