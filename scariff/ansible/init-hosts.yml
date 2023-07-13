@@ -1,0 +1,38 @@
+---
+- name: Initial Config for Hosts
+  hosts: all
+  become: true
+
+  tasks:
+    - name: Create Root Docker Folder
+      ansible.builtin.file:
+        path: /docker
+        state: directory
+        mode: '0755'
+        recurse: true
+        owner: sysadmin
+        group: sysadmin
+
+    - name: Create tree in it
+      ansible.builtin.file:
+        path: /docker/{{ item }}
+        state: directory
+        mode: '0755'
+      loop:
+        - uptime-kuma
+        - traefik
+        - portainer
+        - homepage
+        - adguard
+        - homer
+        - dozzle
+        - code-server
+
+    - name: Clone Homepage config files
+      ansible.builtin.git:
+        repo: https://github.com/xavier2p/homepage.git
+        dest: /docker/homepage
+        version: main
+        clone: true
+        update: true
+        force: true

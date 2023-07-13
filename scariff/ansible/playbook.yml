@@ -1,25 +1,29 @@
 ---
 - name: Install Raspberry Pi
   hosts: all
-  become: yes
+  become: true
 
   tasks:
       # Updates the repository cache
       - name: Update
-        apt: update_cache=yes
+        ansible.builtin.apt:
+            update_cache: true
 
       # Upgrades all packages
       - name: Upgrade
-        apt: upgrade=dist
+        ansible.builtin.apt:
+            upgrade: dist
 
       # Installs the required packages for Docker
-      - name: Install apt-transport-https
+      - name: Install APT packages
         ansible.builtin.apt:
             name:
                 - apt-transport-https
                 - ca-certificates
                 - lsb-release
                 - gnupg
+                - zsh
+                - vim
             state: latest
             update_cache: true
 
@@ -52,12 +56,12 @@
         ansible.builtin.get_url:
             url: 'https://releases.hashicorp.com/terraform/1.4.6/terraform_1.4.6_linux_arm64.zip'
             dest: /tmp/terraform.zip
-            mode: 0755
+            mode: '0755'
 
       # Unzips the Terraform binary to the bin directory
       - name: Unzip Terraform
         ansible.builtin.unarchive:
             src: /tmp/terraform.zip
             dest: /usr/local/bin
-            remote_src: yes
-            mode: 0755
+            remote_src: true
+            mode: '0755'
