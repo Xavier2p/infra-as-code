@@ -15,6 +15,7 @@ resource "docker_container" "dozzle" {
   volumes {
     container_path = "/var/run/docker.sock"
     host_path      = "/var/run/docker.sock"
+    read_only      = true
   }
 
   labels {
@@ -26,7 +27,7 @@ resource "docker_container" "dozzle" {
     value = "web"
   }
   labels {
-    label = "traefik.http.routers.dozzle.loadbalancer.server.port"
+    label = "traefik.http.services.dozzle.loadbalancer.server.port"
     value = "8080"
   }
   labels {

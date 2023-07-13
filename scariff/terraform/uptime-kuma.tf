@@ -16,9 +16,14 @@ resource "docker_container" "uptime_kuma" {
     container_path = "/app/data"
     host_path      = "/docker/uptime-kuma/"
   }
+  volumes {
+    container_path = "/var/run/docker.sock"
+    host_path      = "/var/run/docker.sock"
+    read_only      = true
+  }
 
   labels {
-    label = "traefik.http.services.uptimekuma.loadBalancer.server.port"
+    label = "traefik.http.services.uptimekuma.loadbalancer.server.port"
     value = "3001"
   }
   labels {

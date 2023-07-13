@@ -5,7 +5,7 @@ resource "docker_image" "traefik" {
 resource "docker_container" "traefik" {
   name    = "traefik"
   image   = docker_image.traefik.name
-  restart = "always"
+  restart = "unless-stopped"
 
   ports {
     internal = 80
@@ -30,22 +30,22 @@ resource "docker_container" "traefik" {
     host_path      = "/docker/traefik/"
   }
 
-  labels {
-    label = "traefik.http.routers.traefik.rule"
-    value = "Host(`proxy.rpi.srv`)"
-  }
-  labels {
-    label = "traefik.http.routers.traefik.entrypoints"
-    value = "web"
-  }
-  labels {
-    label = "traefik.enable"
-    value = "true"
-  }
-  labels {
-    label = "traefik.http.routers.traefik.loadbalancer.server.port"
-    value = "8080"
-  }
+  #   labels {
+  #     label = "traefik.http.routers.traefik.rule"
+  #     value = "Host(`proxy.rpi.srv`)"
+  #   }
+  #   labels {
+  #     label = "traefik.http.routers.traefik.entrypoints"
+  #     value = "web"
+  #   }
+  #   labels {
+  #     label = "traefik.enable"
+  #     value = "true"
+  #   }
+  #   labels {
+  #     label = "traefik.http.routers.traefik.loadbalancer.server.port"
+  #     value = "8080"
+  #   }
 
   networks_advanced {
     name = "scariff"

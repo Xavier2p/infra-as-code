@@ -13,12 +13,17 @@ resource "docker_container" "homepage" {
   }
 
   volumes {
-    container_path = "/app/data"
+    container_path = "/app/config"
     host_path      = "/docker/homepage/"
+  }
+  volumes {
+    container_path = "/var/run/docker.sock"
+    host_path      = "/var/run/docker.sock"
+    read_only      = true
   }
 
   labels {
-    label = "traefik.http.services.homepage.loadBalancer.server.port"
+    label = "traefik.http.services.homepage.loadbalancer.server.port"
     value = "3000"
   }
   labels {
