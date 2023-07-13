@@ -6,6 +6,10 @@ resource "docker_container" "code_server" {
   name    = "code-server"
   image   = docker_image.code_server.name
   restart = "unless-stopped"
+  env = [
+    "PGID=1000",
+    "PUID=1000"
+  ]
 
   ports {
     internal = 8443
