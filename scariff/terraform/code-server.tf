@@ -16,6 +16,10 @@ resource "docker_container" "code_server" {
     container_path = "/config"
     host_path      = "/docker/code-server/"
   }
+  volumes {
+    container_path = "/docker-config"
+    host_path      = "/docker"
+  }
 
   labels {
     label = "traefik.http.routers.code-server.rule"
