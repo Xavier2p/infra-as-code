@@ -21,6 +21,10 @@ resource "docker_container" "portainer_agent" {
     host_path      = "/var/lib/docker/volumes"
   }
 
+  networks_advanced {
+    name = "scariff"
+  }
+
   depends_on = [
     docker_image.portainer_agent
   ]
