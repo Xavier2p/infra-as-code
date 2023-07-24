@@ -27,7 +27,7 @@ resource "docker_container" "code_server" {
 
   labels {
     label = "traefik.http.routers.code-server.rule"
-    value = "Host(`code.rpi.srv`)"
+    value = "Host(`code.${var.domain_name}`)"
   }
   labels {
     label = "traefik.http.routers.code-server.entrypoints"

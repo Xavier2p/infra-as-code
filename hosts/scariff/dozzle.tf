@@ -20,7 +20,7 @@ resource "docker_container" "dozzle" {
 
   labels {
     label = "traefik.http.routers.dozzle.rule"
-    value = "Host(`dozzle.rpi.srv`)"
+    value = "Host(`dozzle.${var.domain_name}`)"
   }
   labels {
     label = "traefik.http.routers.dozzle.entrypoints"

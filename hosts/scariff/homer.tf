@@ -20,7 +20,7 @@ resource "docker_container" "homer" {
 
   labels {
     label = "traefik.http.routers.homer.rule"
-    value = "Host(`public.rpi.srv`)"
+    value = "Host(`public.${var.domain_name}`)"
   }
   labels {
     label = "traefik.http.routers.homer.entrypoints"

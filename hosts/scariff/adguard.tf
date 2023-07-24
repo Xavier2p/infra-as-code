@@ -32,7 +32,7 @@ resource "docker_container" "adguard" {
 
   labels {
     label = "traefik.http.routers.adguard.rule"
-    value = "Host(`dns.rpi.srv`)"
+    value = "Host(`dns.${var.domain_name}`)"
   }
   labels {
     label = "traefik.http.routers.adguard.entrypoints"

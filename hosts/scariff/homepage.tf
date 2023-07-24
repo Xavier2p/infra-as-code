@@ -28,7 +28,7 @@ resource "docker_container" "homepage" {
   }
   labels {
     label = "traefik.http.routers.homepage.rule"
-    value = "Host(`admin.rpi.srv`)"
+    value = "Host(`admin.${var.domain_name}`)"
   }
   labels {
     label = "traefik.http.routers.homepage.entrypoints"

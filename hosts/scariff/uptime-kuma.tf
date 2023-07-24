@@ -28,7 +28,7 @@ resource "docker_container" "uptime_kuma" {
   }
   labels {
     label = "traefik.http.routers.uptimekuma.rule"
-    value = "Host(`status.rpi.srv`)"
+    value = "Host(`status.${var.domain_name}`)"
   }
   labels {
     label = "traefik.http.routers.uptimekuma.entrypoints"

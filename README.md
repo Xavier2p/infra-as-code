@@ -1,19 +1,23 @@
-# Infra as Code - [Xavier2p](https://github.com/Xavier2p)
+# Infrastructure as Code - [Xavier2p](https://github.com/Xavier2p)
+
+![GitHub top language](https://img.shields.io/github/languages/top/xavier2p/infra-as-code?style=for-the-badge&logo=terraform&label=terraform&color=%237B42BC)
 
 > This repository contains the code of my infrastructure.
 
-## Devices
+## Hosts
 
-I use one Raspberry Pi 4 (4GB) for the moment.
++ [`scariff`](./hosts/scariff/README.md): My main server, a Raspberry Pi 4.
++ [`exegol`](./hosts/exegol/README.md): My laptop, a MacBook Air M1.
++ [`mandalore`](./hosts/mandalore/README.md): My development server, a Dell PowerEdge R710.
 
 ## Tools
 
-+ My server runs on [`Raspberry Pi OS Lite 64 bits`](https://www.raspberrypi.com/software/operating-systems/#raspberry-pi-os-64-bit).
++ My server runs on [NixOS](https://github.com/Xavier2p/system).
 + I use [`Docker`](https://www.docker.com/) to run my services.
 + For configuration, I use [`Ansible`](https://www.ansible.com/).
-+ For deployment, I use [`Terraform`](https://www.terraform.io/) and Docker Compose.
++ For deployment, I use [`Terraform`](https://www.terraform.io/).
 
-## Install
+<!-- ## Install
 
 ### Prerequisites
 
@@ -35,4 +39,4 @@ ansible-playbook -i hosts.yml -l <IP_ADDRESS> -u <USER> -k -b playbook.yml
 cd ../terraform
 terraform init
 terraform apply
-```
+``` -->

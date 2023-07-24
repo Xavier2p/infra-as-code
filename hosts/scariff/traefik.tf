@@ -32,7 +32,7 @@ resource "docker_container" "traefik" {
 
   labels {
     label = "traefik.http.routers.traefik.rule"
-    value = "Host(`proxy.rpi.srv`)"
+    value = "Host(`proxy.${var.domain_name}`)"
   }
   labels {
     label = "traefik.http.routers.traefik.entrypoints"
