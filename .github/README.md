@@ -21,7 +21,7 @@
 
 ### Prerequisites
 
-1. Install `Rasberry Pi OS Lite 64 bits` on your Raspberry Pi.
+1. Install `Raspberry Pi OS Lite 64 bits` on your Raspberry Pi.
 2. Get the IP address of your Raspberry Pi.
 3. Install `Ansible` on your computer.
 4. Install `Terraform` on your computer.
