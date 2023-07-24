@@ -12,7 +12,7 @@
 
 ## Tools
 
-+ My server runs on [NixOS](https://github.com/Xavier2p/system).
++ My servers run on [NixOS](https://github.com/Xavier2p/system).
 + I use [`Docker`](https://www.docker.com/) to run my services.
 + For configuration, I use [`Ansible`](https://www.ansible.com/).
 + For deployment, I use [`Terraform`](https://www.terraform.io/).
