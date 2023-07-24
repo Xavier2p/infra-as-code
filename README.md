@@ -6,9 +6,9 @@
 
 ## Hosts
 
-+ [`scariff`](./hosts/scariff/README.md): My main server, a Raspberry Pi 4.
-+ [`exegol`](./hosts/exegol/README.md): My laptop, a MacBook Air M1.
-+ [`mandalore`](./hosts/mandalore/README.md): My development server, a Dell PowerEdge R710.
++ [`scariff`](./hosts/scariff): My main server, a Raspberry Pi 4.
++ [`exegol`](./hosts/exegol): My laptop, a MacBook Air M1.
++ [`mandalore`](./hosts/mandalore): My development server, a Dell PowerEdge R710.
 
 ## Tools
 
