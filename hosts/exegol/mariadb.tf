@@ -22,4 +22,13 @@ resource "docker_container" "mariadb" {
     container_path = "/var/lib/mysql"
     host_path      = "/usr/local/mariadb"
   }
+
+  networks_advanced {
+    name = "exegol"
+  }
+
+  depends_on = [
+    docker_container.mariadb,
+    docker_network.exegol
+  ]
 }
