@@ -3,7 +3,7 @@ resource "docker_image" "portainer_agent" {
 }
 
 resource "docker_container" "portainer_agent" {
-  name    = "portainer_agent"
+  name    = "portainer-agent"
   image   = docker_image.portainer_agent.name
   restart = "always"
 
