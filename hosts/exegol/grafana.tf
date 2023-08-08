@@ -2,6 +2,10 @@ resource "docker_image" "grafana" {
   name = "grafana/grafana-oss:latest"
 }
 
+resource "docker_volume" "grafana" {
+  name = "grafana"
+}
+
 resource "docker_container" "grafana" {
   name    = "grafana"
   image   = docker_image.grafana.name
@@ -15,7 +19,7 @@ resource "docker_container" "grafana" {
 
   volumes {
     container_path = "/var/lib/grafana"
-    host_path      = "/usr/local/grafana"
+    volume_name    = docker_volume.grafana.name
   }
 
   networks_advanced {
@@ -24,6 +28,7 @@ resource "docker_container" "grafana" {
 
   depends_on = [
     docker_container.grafana,
+    docker_volume.grafana,
     docker_network.exegol
   ]
 }

@@ -2,8 +2,7 @@
 # secrets/
 target/
 .terraform/
-*.tfstate
-*.tfstate.backup
+*.tfstate*
 *.tfvars
 *.hcl
 tool
