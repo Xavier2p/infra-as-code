@@ -20,6 +20,7 @@ resource "docker_container" "grafana" {
   volumes {
     container_path = "/var/lib/grafana"
     volume_name    = docker_volume.grafana.name
+    read_only      = false
   }
 
   networks_advanced {

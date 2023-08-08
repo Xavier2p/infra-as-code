@@ -3,6 +3,7 @@
 On the `exegol` server, there are some services:
 
 + [MariaDB](https://mariadb.org/): Database.
++ [Grafana](https://grafana.com/): Monitoring.
 
 To install all of them:
 

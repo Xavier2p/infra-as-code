@@ -21,6 +21,7 @@ resource "docker_container" "mariadb" {
   volumes {
     container_path = "/var/lib/mysql"
     host_path      = "/usr/local/mariadb"
+    read_only      = false
   }
 
   networks_advanced {
