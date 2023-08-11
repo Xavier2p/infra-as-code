@@ -6,7 +6,7 @@ variable "password_mariadb" {
   description = "Password for MariaDB"
 }
 
-variable "server_name" {
+variable "hostname" {
   type        = string
   default     = "exegol"
   description = "Name of the server"
@@ -28,4 +28,10 @@ variable "storage_surrealdb" {
   type        = string
   default     = "/data"
   description = "Path of data, in container"
+}
+
+variable "storage_mariadb" {
+  type        = string
+  default     = "/usr/local/mariadb"
+  description = "Path of data, on host"
 }

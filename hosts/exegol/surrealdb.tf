@@ -13,7 +13,7 @@ resource "docker_container" "surrealdb" {
     var.user_surrealdb,
     "--pass",
     var.password_surrealdb,
-    "file:${var.storage_surrealdb}"
+    "file:${var.storage_surrealdb}/database.db"
   ]
 
   ports {
@@ -27,11 +27,11 @@ resource "docker_container" "surrealdb" {
   }
 
   networks_advanced {
-    name = docker_network.exegol.name
+    name = docker_network.main.name
   }
 
   depends_on = [
     docker_image.surrealdb,
-    docker_network.exegol
+    docker_network.main
   ]
 }

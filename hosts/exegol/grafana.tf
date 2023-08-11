@@ -24,12 +24,12 @@ resource "docker_container" "grafana" {
   }
 
   networks_advanced {
-    name = docker_network.exegol.name
+    name = docker_network.main.name
   }
 
   depends_on = [
     docker_container.grafana,
     docker_volume.grafana,
-    docker_network.exegol
+    docker_network.main
   ]
 }

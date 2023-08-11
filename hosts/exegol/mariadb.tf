@@ -20,16 +20,16 @@ resource "docker_container" "mariadb" {
 
   volumes {
     container_path = "/var/lib/mysql"
-    host_path      = "/usr/local/mariadb"
+    host_path      = var.storage_mariadb
     read_only      = false
   }
 
   networks_advanced {
-    name = docker_network.exegol.name
+    name = docker_network.main.name
   }
 
   depends_on = [
     docker_container.mariadb,
-    docker_network.exegol
+    docker_network.main
   ]
 }
