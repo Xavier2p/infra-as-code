@@ -24,7 +24,7 @@ resource "docker_container" "grafana" {
   }
 
   networks_advanced {
-    name = "exegol"
+    name = docker_network.exegol.name
   }
 
   depends_on = [

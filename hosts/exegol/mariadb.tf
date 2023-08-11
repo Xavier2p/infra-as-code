@@ -25,7 +25,7 @@ resource "docker_container" "mariadb" {
   }
 
   networks_advanced {
-    name = "exegol"
+    name = docker_network.exegol.name
   }
 
   depends_on = [
