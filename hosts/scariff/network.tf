@@ -1,9 +1,9 @@
-resource "docker_network" "scariff" {
-  name   = "scariff"
+resource "docker_network" "main" {
+  name   = var.hostname
   driver = "bridge"
 }
 
 resource "docker_network" "public" {
-  name   = "public"
+  name   = "${var.hostname}-public"
   driver = "bridge"
 }

@@ -43,12 +43,12 @@ resource "docker_container" "code_server" {
   }
 
   networks_advanced {
-    name = "scariff"
+    name = docker_network.main.name
   }
 
   depends_on = [
     docker_image.code_server,
-    docker_network.scariff
+    docker_network.main
   ]
 }
 

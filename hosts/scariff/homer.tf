@@ -36,11 +36,11 @@ resource "docker_container" "homer" {
   }
 
   networks_advanced {
-    name = "scariff"
+    name = docker_network.main.name
   }
 
   depends_on = [
     docker_image.homer,
-    docker_network.scariff
+    docker_network.main
   ]
 }

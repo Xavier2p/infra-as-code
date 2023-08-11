@@ -48,12 +48,12 @@ resource "docker_container" "traefik" {
   }
 
   networks_advanced {
-    name = "scariff"
+    name = docker_network.main.name
   }
 
   depends_on = [
     docker_image.traefik,
-    docker_network.scariff
+    docker_network.main
   ]
 }
 

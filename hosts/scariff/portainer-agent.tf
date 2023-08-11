@@ -22,10 +22,11 @@ resource "docker_container" "portainer_agent" {
   }
 
   networks_advanced {
-    name = "scariff"
+    name = docker_network.main.name
   }
 
   depends_on = [
-    docker_image.portainer_agent
+    docker_image.portainer_agent,
+    docker_network.main
   ]
 }

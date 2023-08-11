@@ -36,11 +36,11 @@ resource "docker_container" "dozzle" {
   }
 
   networks_advanced {
-    name = "scariff"
+    name = docker_network.main.name
   }
 
   depends_on = [
     docker_image.dozzle,
-    docker_network.scariff
+    docker_network.main
   ]
 }

@@ -6,7 +6,7 @@ variable "domain_name" {
   description = "Domain name for the server"
 }
 
-variable "server_name" {
+variable "hostname" {
   type        = string
   default     = "scariff"
   description = "Name of the server"

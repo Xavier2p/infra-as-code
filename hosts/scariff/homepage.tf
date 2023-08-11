@@ -40,12 +40,12 @@ resource "docker_container" "homepage" {
   }
 
   networks_advanced {
-    name = "scariff"
+    name = docker_network.main.name
   }
 
   depends_on = [
     docker_image.homepage,
-    docker_network.scariff
+    docker_network.main
   ]
 }
 

@@ -40,12 +40,12 @@ resource "docker_container" "uptime_kuma" {
   }
 
   networks_advanced {
-    name = "scariff"
+    name = docker_network.main.name
   }
 
   depends_on = [
     docker_image.uptime_kuma,
-    docker_network.scariff
+    docker_network.main
   ]
 }
 
