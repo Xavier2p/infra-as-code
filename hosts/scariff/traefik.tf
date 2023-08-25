@@ -28,6 +28,7 @@ resource "docker_container" "traefik" {
   volumes {
     container_path = "/etc/traefik"
     host_path      = "/docker/traefik/"
+    read_only      = false
   }
 
   labels {

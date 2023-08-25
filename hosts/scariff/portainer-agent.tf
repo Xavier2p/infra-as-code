@@ -15,10 +15,12 @@ resource "docker_container" "portainer_agent" {
   volumes {
     container_path = "/var/run/docker.sock"
     host_path      = "/var/run/docker.sock"
+    read_only      = false
   }
   volumes {
     container_path = "/var/lib/docker/volumes"
     host_path      = "/var/lib/docker/volumes"
+    read_only      = false
   }
 
   networks_advanced {

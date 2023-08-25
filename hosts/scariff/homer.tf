@@ -16,6 +16,7 @@ resource "docker_container" "homer" {
   volumes {
     container_path = "/www/assets"
     host_path      = "/docker/homer"
+    read_only      = false
   }
 
   labels {

@@ -15,6 +15,7 @@ resource "docker_container" "uptime_kuma" {
   volumes {
     container_path = "/app/data"
     host_path      = "/docker/uptime-kuma/"
+    read_only      = false
   }
   volumes {
     container_path = "/var/run/docker.sock"

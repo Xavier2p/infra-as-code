@@ -15,6 +15,7 @@ resource "docker_container" "homepage" {
   volumes {
     container_path = "/app/config"
     host_path      = "/docker/homepage/"
+    read_only      = false
   }
   volumes {
     container_path = "/var/run/docker.sock"
