@@ -22,17 +22,17 @@ resource "docker_container" "me-tube" {
   }
 
   labels {
-    label = "traefik.http.routers.me-tube.rule"
-    value = "Host(`ytld.${var.domain_name}`)"
+    label = "traefik.http.routers.metube.rule"
+    value = "Host(`ytdl.${var.domain_name}`)"
   }
 
   labels {
-    label = "traefik.http.routers.me-tube.entrypoints"
+    label = "traefik.http.routers.metube.entrypoints"
     value = "web"
   }
 
   labels {
-    label = "traefik.http.services.me-tube.loadbalancer.server.port"
+    label = "traefik.http.services.metube.loadbalancer.server.port"
     value = "8081"
   }
 
