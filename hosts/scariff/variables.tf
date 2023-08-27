@@ -11,8 +11,3 @@ variable "hostname" {
   default     = "scariff"
   description = "Name of the server"
 }
-
-variable "path_downloads" {
-  type        = string
-  description = "Path to the downloads folder"
-}

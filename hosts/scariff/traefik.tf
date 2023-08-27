@@ -32,11 +32,11 @@ resource "docker_container" "traefik" {
   }
 
   labels {
-    label = "traefik.http.routers.traefik.rule"
+    label = "traefik.http.routers.rpm.rule"
     value = "Host(`proxy.${var.domain_name}`)"
   }
   labels {
-    label = "traefik.http.routers.traefik.entrypoints"
+    label = "traefik.http.routers.rpm.entrypoints"
     value = "web"
   }
   labels {
@@ -44,7 +44,7 @@ resource "docker_container" "traefik" {
     value = "true"
   }
   labels {
-    label = "traefik.http.routers.traefik.loadbalancer.server.port"
+    label = "traefik.http.routers.rpm.loadbalancer.server.port"
     value = "8080"
   }
 
