@@ -17,8 +17,8 @@ resource "docker_container" "me-tube" {
   }
 
   volumes {
-    container_path = "downloads"
-    host_path      = var.path_downloads
+    container_path = "/downloads"
+    host_path      = "/downloads/ytdl"
   }
 
   labels {
