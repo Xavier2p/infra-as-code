@@ -1,0 +1,23 @@
+---
+- name: Clone Configuration Repositories
+  hosts: all
+  become: true
+
+  tasks:
+    - name: Clone Homepage Configuration Files
+      ansible.builtin.git:
+        repo: https://github.com/Xavier2p/homepage.git
+        dest: /docker/homepage
+        version: main
+        clone: true
+        update: true
+        force: true
+
+    - name: Clone Infra As Code Configuration Files
+      ansible.builtin.git:
+        repo: https://github.com/Xavier2p/infra-as-code.git
+        dest: /infra
+        version: main
+        clone: true
+        update: true
+        force: true

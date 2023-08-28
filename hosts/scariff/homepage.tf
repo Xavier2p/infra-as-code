@@ -14,7 +14,7 @@ resource "docker_container" "homepage" {
 
   volumes {
     container_path = "/app/config"
-    host_path      = "/docker/homepage/"
+    host_path      = "${var.path_config}/homepage/"
     read_only      = false
   }
   volumes {

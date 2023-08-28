@@ -28,18 +28,31 @@
         - dozzle
         - code-server
 
-    - name: Clone Homepage config files
-      ansible.builtin.git:
-        repo: https://github.com/xavier2p/homepage.git
-        dest: /docker/homepage
-        version: main
-        clone: true
-        update: true
-        force: true
-
     - name: Assign good right to Traefik
       ansible.builtin.file:
         path: /docker/traefik/acme.json
         owner: sysadmin
         group: sysadmin
         mode: '0600'
+
+    - name: Create Downloads Folder
+      ansible.builtin.file:
+        path: /downloads
+        state: directory
+        mode: '0755'
+        recurse: true
+        owner: sysadmin
+        group: sysadmin
+
+    - name: Create tree in it
+      ansible.builtin.file:
+        path: /downloads/{{ item }}
+        state: directory
+        mode: '0755'
+      loop:
+        - movies
+        - series
+        - music
+        - ytdl
+        - photos
+        - other

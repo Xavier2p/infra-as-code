@@ -23,12 +23,12 @@ resource "docker_container" "adguard" {
 
   volumes {
     container_path = "/opt/adguardhome/conf"
-    host_path      = "/docker/adguard/config"
+    host_path      = "${var.path_config}/adguard/config"
     read_only      = false
   }
   volumes {
     container_path = "/opt/adguardhome/work"
-    host_path      = "/docker/adguard/work"
+    host_path      = "${var.path_config}/adguard/work"
     read_only      = false
   }
 

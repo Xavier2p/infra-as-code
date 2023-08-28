@@ -27,7 +27,7 @@ resource "docker_container" "traefik" {
   }
   volumes {
     container_path = "/etc/traefik"
-    host_path      = "/docker/traefik/"
+    host_path      = "${var.path_config}/traefik/"
     read_only      = false
   }
 

@@ -18,12 +18,12 @@ resource "docker_container" "code_server" {
 
   volumes {
     container_path = "/config"
-    host_path      = "/docker/code-server/"
+    host_path      = "${var.path_config}/code-server/"
     read_only      = false
   }
   volumes {
     container_path = "/docker-config"
-    host_path      = "/docker"
+    host_path      = var.path_config
     read_only      = false
   }
 

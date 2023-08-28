@@ -11,3 +11,16 @@ variable "hostname" {
   default     = "scariff"
   description = "Name of the server"
 }
+
+variable "path_downloads" {
+  type        = string
+  default     = "/downloads"
+  description = "Path to the downloads folder"
+}
+
+variable "path_config" {
+  type        = string
+  default     = "/docker"
+  description = "Path of the config folder"
+
+}
