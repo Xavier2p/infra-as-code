@@ -13,6 +13,15 @@
         owner: sysadmin
         group: sysadmin
 
+    - name: Create Infra Folder
+      ansible.builtin.file:
+        path: /infra
+        state: directory
+        mode: '0755'
+        recurse: true
+        owner: sysadmin
+        group: sysadmin
+
     - name: Create tree in it
       ansible.builtin.file:
         path: /docker/{{ item }}
