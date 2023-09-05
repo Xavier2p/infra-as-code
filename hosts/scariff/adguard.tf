@@ -38,7 +38,7 @@ resource "docker_container" "adguard" {
   }
   labels {
     label = "traefik.http.routers.adguard.entrypoints"
-    value = "web"
+    value = var.entrypoint
   }
   labels {
     label = "traefik.http.services.adguard.loadbalancer.server.port"
@@ -47,6 +47,16 @@ resource "docker_container" "adguard" {
   labels {
     label = "traefik.enable"
     value = "true"
+  }
+
+  labels {
+    label = "traefik.http.routers.adguard.tls"
+    value = "true"
+  }
+
+  labels {
+    label = "traefik.http.routers.adguard.tls.certresolver"
+    value = var.resolver_ssl
   }
 
   networks_advanced {

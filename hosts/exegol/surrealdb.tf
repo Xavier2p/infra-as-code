@@ -1,5 +1,5 @@
 resource "docker_image" "surrealdb" {
-  name = "surrealdb/surrealdb:latest"
+  name = "surrealdb/surrealdb:1.0.0-beta.9-20230402"
 }
 
 resource "docker_container" "surrealdb" {

@@ -22,5 +22,20 @@ variable "path_config" {
   type        = string
   default     = "/docker"
   description = "Path of the config folder"
+}
 
+variable "cloudflare_token" {
+  type        = string
+  sensitive   = true
+  description = "Cloudflare API token"
+}
+
+variable "resolver_ssl" {
+  type        = string
+  description = "SSL resolver for Traefik. can be 'staging' or 'production'"
+}
+
+variable "entrypoint" {
+  type        = string
+  description = "Entrypoint for Traefik. can be 'web' or 'websecure'"
 }
