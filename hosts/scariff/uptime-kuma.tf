@@ -33,10 +33,19 @@ resource "docker_container" "uptime_kuma" {
   }
   labels {
     label = "traefik.http.routers.uptimekuma.entrypoints"
-    value = "web"
+    value = var.entrypoint
   }
   labels {
     label = "traefik.enable"
+    value = "true"
+  }
+  labels {
+    label = "traefik.http.routers.uptimekuma.tls.certresolver"
+    value = var.resolver_ssl
+  }
+
+  labels {
+    label = "traefik.http.routers.uptimekuma.tls"
     value = "true"
   }
 
@@ -49,12 +58,3 @@ resource "docker_container" "uptime_kuma" {
     docker_network.main
   ]
 }
-
-# labels {
-# label = "traefik.http.routers.uptimekuma.tls.certresolver"
-# value = "le"
-# }
-# labels {
-#   label = "traefik.http.routers.uptimekuma.tls"
-#   value = "true"
-# }

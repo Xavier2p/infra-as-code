@@ -37,7 +37,7 @@ resource "docker_container" "traefik" {
   }
   labels {
     label = "traefik.http.routers.rpm.entrypoints"
-    value = "web"
+    value = var.entrypoint
   }
   labels {
     label = "traefik.enable"
@@ -46,6 +46,15 @@ resource "docker_container" "traefik" {
   labels {
     label = "traefik.http.routers.rpm.loadbalancer.server.port"
     value = "8080"
+  }
+  labels {
+    label = "traefik.http.routers.rpm.tls.certresolver"
+    value = var.resolver_ssl
+  }
+
+  labels {
+    label = "traefik.http.routers.rpm.tls"
+    value = "true"
   }
 
   networks_advanced {
@@ -57,12 +66,3 @@ resource "docker_container" "traefik" {
     docker_network.main
   ]
 }
-
-#   labels {
-#     label = "traefik.http.routers.traefik.tls.certresolver"
-#     value = "le"
-#   }
-#   labels {
-#     label = "traefik.http.routers.traefik.tls"
-#     value = "true"
-#   }

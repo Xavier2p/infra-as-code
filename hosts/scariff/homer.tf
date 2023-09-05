@@ -25,7 +25,7 @@ resource "docker_container" "homer" {
   }
   labels {
     label = "traefik.http.routers.homer.entrypoints"
-    value = "web"
+    value = var.entrypoint
   }
   labels {
     label = "traefik.enable"
@@ -34,6 +34,14 @@ resource "docker_container" "homer" {
   labels {
     label = "traefik.http.services.homer.loadbalancer.server.port"
     value = "8080"
+  }
+  labels {
+    label = "traefik.http.routers.homer.tls.certresolver"
+    value = var.resolver_ssl
+  }
+  labels {
+    label = "traefik.http.routers.homer.tls"
+    value = "true"
   }
 
   networks_advanced {

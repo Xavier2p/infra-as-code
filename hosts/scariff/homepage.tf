@@ -33,10 +33,19 @@ resource "docker_container" "homepage" {
   }
   labels {
     label = "traefik.http.routers.homepage.entrypoints"
-    value = "web"
+    value = var.entrypoint
   }
   labels {
     label = "traefik.enable"
+    value = "true"
+  }
+  labels {
+    label = "traefik.http.routers.homepage.tls.certresolver"
+    value = var.resolver_ssl
+  }
+
+  labels {
+    label = "traefik.http.routers.homepage.tls"
     value = "true"
   }
 

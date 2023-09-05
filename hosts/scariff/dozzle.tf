@@ -24,7 +24,7 @@ resource "docker_container" "dozzle" {
   }
   labels {
     label = "traefik.http.routers.dozzle.entrypoints"
-    value = "web"
+    value = var.entrypoint
   }
   labels {
     label = "traefik.http.services.dozzle.loadbalancer.server.port"
@@ -32,6 +32,14 @@ resource "docker_container" "dozzle" {
   }
   labels {
     label = "traefik.enable"
+    value = "true"
+  }
+  labels {
+    label = "traefik.http.routers.dozzle.tls.certresolver"
+    value = var.resolver_ssl
+  }
+  labels {
+    label = "traefik.http.routers.dozzle.tls"
     value = "true"
   }
 

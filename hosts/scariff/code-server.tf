@@ -33,7 +33,7 @@ resource "docker_container" "code_server" {
   }
   labels {
     label = "traefik.http.routers.code-server.entrypoints"
-    value = "web"
+    value = var.entrypoint
   }
   labels {
     label = "traefik.enable"
@@ -42,6 +42,14 @@ resource "docker_container" "code_server" {
   labels {
     label = "traefik.http.services.code-server.loadbalancer.server.port"
     value = "8443"
+  }
+  labels {
+    label = "traefik.http.routers.code-server.tls.certresolver"
+    value = var.resolver_ssl
+  }
+  labels {
+    label = "traefik.http.routers.code-server.tls"
+    value = "true"
   }
 
   networks_advanced {
@@ -53,12 +61,3 @@ resource "docker_container" "code_server" {
     docker_network.main
   ]
 }
-
-# labels {
-#   label = "traefik.http.routers.code-server.tls.certresolver"
-#   value = "le"
-# }
-# labels {
-#   label = "traefik.http.routers.code-server.tls"
-#   value = "true"
-# }

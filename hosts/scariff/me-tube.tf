@@ -25,19 +25,25 @@ resource "docker_container" "me-tube" {
     label = "traefik.http.routers.metube.rule"
     value = "Host(`ytdl.${var.domain_name}`)"
   }
-
   labels {
     label = "traefik.http.routers.metube.entrypoints"
-    value = "web"
+    value = var.entrypoint
   }
-
   labels {
     label = "traefik.http.services.metube.loadbalancer.server.port"
     value = "8081"
   }
-
   labels {
     label = "traefik.enable"
+    value = "true"
+  }
+  labels {
+    label = "traefik.http.routers.metube.tls.certresolver"
+    value = var.resolver_ssl
+  }
+
+  labels {
+    label = "traefik.http.routers.metube.tls"
     value = "true"
   }
 
