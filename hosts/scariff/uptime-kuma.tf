@@ -37,7 +37,7 @@ resource "docker_container" "uptime_kuma" {
   }
   labels {
     label = "traefik.enable"
-    value = "true"
+    value = var.traefik_enable
   }
   labels {
     label = "traefik.http.routers.uptimekuma.tls.certresolver"
@@ -46,7 +46,7 @@ resource "docker_container" "uptime_kuma" {
 
   labels {
     label = "traefik.http.routers.uptimekuma.tls"
-    value = "true"
+    value = var.tls_enable
   }
 
   networks_advanced {

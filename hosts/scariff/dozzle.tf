@@ -32,7 +32,7 @@ resource "docker_container" "dozzle" {
   }
   labels {
     label = "traefik.enable"
-    value = "true"
+    value = var.traefik_enable
   }
   labels {
     label = "traefik.http.routers.dozzle.tls.certresolver"
@@ -40,7 +40,7 @@ resource "docker_container" "dozzle" {
   }
   labels {
     label = "traefik.http.routers.dozzle.tls"
-    value = "true"
+    value = var.tls_enable
   }
 
   networks_advanced {

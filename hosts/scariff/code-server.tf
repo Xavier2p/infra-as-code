@@ -37,7 +37,7 @@ resource "docker_container" "code_server" {
   }
   labels {
     label = "traefik.enable"
-    value = "true"
+    value = var.traefik_enable
   }
   labels {
     label = "traefik.http.services.code-server.loadbalancer.server.port"
@@ -49,7 +49,7 @@ resource "docker_container" "code_server" {
   }
   labels {
     label = "traefik.http.routers.code-server.tls"
-    value = "true"
+    value = var.tls_enable
   }
 
   networks_advanced {

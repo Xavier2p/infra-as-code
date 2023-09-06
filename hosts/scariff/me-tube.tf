@@ -35,16 +35,15 @@ resource "docker_container" "me-tube" {
   }
   labels {
     label = "traefik.enable"
-    value = "true"
+    value = var.traefik_enable
   }
   labels {
     label = "traefik.http.routers.metube.tls.certresolver"
     value = var.resolver_ssl
   }
-
   labels {
     label = "traefik.http.routers.metube.tls"
-    value = "true"
+    value = var.tls_enable
   }
 
   networks_advanced {

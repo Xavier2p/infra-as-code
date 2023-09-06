@@ -37,7 +37,7 @@ resource "docker_container" "homepage" {
   }
   labels {
     label = "traefik.enable"
-    value = "true"
+    value = var.traefik_enable
   }
   labels {
     label = "traefik.http.routers.homepage.tls.certresolver"
@@ -46,7 +46,7 @@ resource "docker_container" "homepage" {
 
   labels {
     label = "traefik.http.routers.homepage.tls"
-    value = "true"
+    value = var.tls_enable
   }
 
   networks_advanced {

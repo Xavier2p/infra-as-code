@@ -41,7 +41,7 @@ resource "docker_container" "traefik" {
   }
   labels {
     label = "traefik.enable"
-    value = "true"
+    value = var.traefik_enable
   }
   labels {
     label = "traefik.http.routers.rpm.loadbalancer.server.port"
@@ -54,7 +54,7 @@ resource "docker_container" "traefik" {
 
   labels {
     label = "traefik.http.routers.rpm.tls"
-    value = "true"
+    value = var.tls_enable
   }
 
   networks_advanced {

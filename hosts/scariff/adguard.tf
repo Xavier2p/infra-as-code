@@ -46,11 +46,11 @@ resource "docker_container" "adguard" {
   }
   labels {
     label = "traefik.enable"
-    value = "true"
+    value = var.traefik_enable
   }
   labels {
     label = "traefik.http.routers.adguard.tls"
-    value = "true"
+    value = var.tls_enable
   }
   labels {
     label = "traefik.http.routers.adguard.tls.certresolver"

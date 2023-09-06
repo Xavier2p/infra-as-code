@@ -39,3 +39,14 @@ variable "entrypoint" {
   type        = string
   description = "Entrypoint for Traefik. can be 'web' or 'websecure'"
 }
+
+variable "traefik_enable" {
+  type        = bool
+  default     = true
+  description = "Enable Traefik"
+}
+
+variable "tls_enable" {
+  type        = bool
+  description = "Enable TLS"
+}
