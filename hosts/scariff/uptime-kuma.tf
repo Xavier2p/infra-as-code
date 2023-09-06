@@ -7,10 +7,10 @@ resource "docker_container" "uptime_kuma" {
   image   = docker_image.uptime_kuma.name
   restart = "always"
 
-  ports {
-    internal = 3001
-    external = 4040
-  }
+  # ports {
+  #   internal = 3001
+  #   external = 4040
+  # }
 
   volumes {
     container_path = "/app/data"

@@ -15,10 +15,10 @@ resource "docker_container" "traefik" {
     internal = 443
     external = 443
   }
-  ports {
-    internal = 8080
-    external = 81
-  }
+  # ports {
+  #   internal = 8080
+  #   external = 81
+  # }
 
   volumes {
     container_path = "/var/run/docker.sock"

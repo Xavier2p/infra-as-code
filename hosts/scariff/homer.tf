@@ -8,10 +8,10 @@ resource "docker_container" "homer" {
   image   = docker_image.homer.name
   restart = "unless-stopped"
 
-  ports {
-    internal = 8080
-    external = 8902
-  }
+  # ports {
+  #   internal = 8080
+  #   external = 8902
+  # }
 
   volumes {
     container_path = "/www/assets"

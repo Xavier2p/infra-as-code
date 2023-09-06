@@ -11,10 +11,10 @@ resource "docker_container" "me-tube" {
     "DARK_MODE=true"
   ]
 
-  ports {
-    internal = 8081
-    external = 8081
-  }
+  # ports {
+  #   internal = 8081
+  #   external = 8081
+  # }
 
   volumes {
     container_path = "/downloads"

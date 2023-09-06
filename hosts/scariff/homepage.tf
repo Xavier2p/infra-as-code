@@ -14,10 +14,10 @@ resource "docker_container" "homepage" {
     "HOMEPAGE_VAR_ADGUARD_API_PASSWORD=${var.adguard_api_password}",
   ]
 
-  ports {
-    internal = 3000
-    external = 3015
-  }
+  # ports {
+  #   internal = 3000
+  #   external = 3015
+  # }
 
   volumes {
     container_path = "/app/config"

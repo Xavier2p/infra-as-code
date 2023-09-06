@@ -7,10 +7,10 @@ resource "docker_container" "dozzle" {
   image   = docker_image.dozzle.name
   restart = "always"
 
-  ports {
-    internal = 8080
-    external = 8888
-  }
+  # ports {
+  #   internal = 8080
+  #   external = 8888
+  # }
 
   volumes {
     container_path = "/var/run/docker.sock"
