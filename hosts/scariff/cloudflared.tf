@@ -11,7 +11,7 @@ resource "docker_container" "cloudflared" {
     "TUNNEL_TOKEN=${var.cloudflare_tunnel_token}",
   ]
 
-  entrypoint = [
+  command = [
     "tunnel",
     "--no-autoupdate",
     "run"
