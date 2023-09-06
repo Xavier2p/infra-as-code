@@ -2,7 +2,7 @@
 
 variable "domain_name" {
   type        = string
-  default     = "forge.xavier2p.fr"
+  default     = "xavier2p.fr"
   description = "Domain name for the server"
 }
 
