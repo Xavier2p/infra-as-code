@@ -27,7 +27,7 @@ variable "path_config" {
 variable "cloudflare_tunnel_token" {
   type        = string
   sensitive   = true
-  description = "Cloudflare API token"
+  description = "Cloudflare Tunnel token"
 }
 
 variable "resolver_ssl" {
@@ -49,4 +49,28 @@ variable "traefik_enable" {
 variable "tls_enable" {
   type        = bool
   description = "Enable TLS"
+}
+
+variable "cloudflare_api_token" {
+  type        = string
+  sensitive   = true
+  description = "Cloudflare API token"
+}
+
+variable "cloudflare_user_id" {
+  type        = string
+  sensitive   = true
+  description = "Cloudflare user ID"
+}
+
+variable "cloudflare_tunnel_id" {
+  type        = string
+  sensitive   = true
+  description = "Cloudflare tunnel ID"
+}
+
+variable "adguard_api_password" {
+  type        = string
+  sensitive   = true
+  description = "Adguard API password"
 }

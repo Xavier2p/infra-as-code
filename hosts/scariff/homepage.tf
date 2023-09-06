@@ -7,6 +7,13 @@ resource "docker_container" "homepage" {
   image   = docker_image.homepage.name
   restart = "always"
 
+  env = [
+    "CLOUDFLARE_TUNNEL_ID=${var.cloudflare_tunnel_id}",
+    "CLOUDFLARE_USER_ID=${var.cloudflare_user_id}",
+    "CLOUDFLARE_API_TOKEN=${var.cloudflare_api_token}",
+    "ADGUARD_API_PASSWORD=${var.adguard_api_password}",
+  ]
+
   ports {
     internal = 3000
     external = 3015
