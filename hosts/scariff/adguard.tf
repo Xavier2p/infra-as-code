@@ -16,10 +16,6 @@ resource "docker_container" "adguard" {
     external = 53
     protocol = "udp"
   }
-  # ports {
-  #   internal = 80
-  #   external = 1010
-  # }
 
   volumes {
     container_path = "/opt/adguardhome/conf"

@@ -2,16 +2,10 @@ resource "docker_image" "homer" {
   name = "b4bz/homer:latest"
 }
 
-
 resource "docker_container" "homer" {
   name    = "homer"
   image   = docker_image.homer.name
   restart = "unless-stopped"
-
-  # ports {
-  #   internal = 8080
-  #   external = 8902
-  # }
 
   volumes {
     container_path = "/www/assets"
