@@ -24,7 +24,7 @@ variable "path_config" {
   description = "Path of the config folder"
 }
 
-variable "cloudflare_token" {
+variable "cloudflare_tunnel_token" {
   type        = string
   sensitive   = true
   description = "Cloudflare API token"

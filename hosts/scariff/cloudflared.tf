@@ -1,21 +1,28 @@
-# resource "docker_image" "cloudflared" {
-#   name = "cloudflare/cloudflared:latest"
-# }
+resource "docker_image" "cloudflared" {
+  name = "cloudflare/cloudflared:latest"
+}
 
-# resource "docker_container" "cloudflared" {
-#   name    = "cloudflared"
-#   image   = docker_image.cloudflared.name
-#   restart = "always"
-#   entrypoint = [
-#     "tunnel",
-#   ]
+resource "docker_container" "cloudflared" {
+  name    = "cloudflared"
+  image   = docker_image.cloudflared.name
+  restart = "unless-stopped"
 
-#   networks_advanced {
-#     name = docker_network.public.name
-#   }
+  env = [
+    "TUNNEL_TOKEN=${var.cloudflare_tunnel_token}",
+  ]
 
-#   depends_on = [
-#     docker_image.cloudflared,
-#     docker_network.public,
-#   ]
-# }
+  entrypoint = [
+    "tunnel",
+    "--no-autoupdate",
+    "run"
+  ]
+
+  networks_advanced {
+    name = docker_network.main.name
+  }
+
+  depends_on = [
+    docker_image.cloudflared,
+    docker_network.main,
+  ]
+}
