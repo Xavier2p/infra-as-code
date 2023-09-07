@@ -74,3 +74,14 @@ variable "adguard_api_password" {
   sensitive   = true
   description = "Adguard API password"
 }
+
+variable "grafana_username" {
+  type        = string
+  description = "Grafana username"
+}
+
+variable "grafana_password" {
+  type        = string
+  sensitive   = true
+  description = "Grafana password"
+}

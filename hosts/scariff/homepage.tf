@@ -12,6 +12,8 @@ resource "docker_container" "homepage" {
     "HOMEPAGE_VAR_CLOUDFLARE_USER_ID=${var.cloudflare_user_id}",
     "HOMEPAGE_VAR_CLOUDFLARE_API_TOKEN=${var.cloudflare_api_token}",
     "HOMEPAGE_VAR_ADGUARD_API_PASSWORD=${var.adguard_api_password}",
+    "HOMEPAGE_VAR_GF_USERNAME=${var.grafana_username}",
+    "HOMEPAGE_VAR_GF_PASSWORD=${var.grafana_password}",
   ]
 
   volumes {
