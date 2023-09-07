@@ -12,11 +12,6 @@ resource "docker_container" "prometheus" {
     # "--storage.local.path=/prometheus",
   ]
 
-  ports {
-    internal = 9090
-    external = 9090
-  }
-
   volumes {
     container_path = "/etc/prometheus"
     host_path      = "${var.path_config}/prometheus/config"

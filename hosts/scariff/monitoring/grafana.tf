@@ -8,11 +8,6 @@ resource "docker_container" "grafana" {
   restart = "unless-stopped"
   user    = "0"
 
-  ports {
-    internal = 3000
-    external = 3000
-  }
-
   volumes {
     container_path = "/var/lib/grafana"
     host_path      = "${var.path_config}/grafana/data"
