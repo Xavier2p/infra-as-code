@@ -36,6 +36,8 @@
         - homer
         - dozzle
         - code-server
+        - grafana
+        - prometheus
 
     - name: Assign good right to Traefik
       ansible.builtin.file:
