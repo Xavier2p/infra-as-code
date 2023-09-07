@@ -1,4 +1,4 @@
-esource "docker_image" "traefik" {
+resource "docker_image" "traefik" {
   name = "traefik:latest"
 }
 

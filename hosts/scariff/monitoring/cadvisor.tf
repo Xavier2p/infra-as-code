@@ -1,39 +1,48 @@
-# resource "docker_image" "cadvisor" {
-#   name = "google/cadvisor:latest"
-# }
+resource "docker_image" "cadvisor" {
+  name = "zcube/cadvisor:latest"
+}
 
-# resource "docker_container" "cadvisor" {
-#   name    = "cadvisor"
-#   image   = docker_image.cadvisor.name
-#   restart = "unless-stopped"
+resource "docker_container" "cadvisor" {
+  name       = "cadvisor"
+  image      = docker_image.cadvisor.name
+  restart    = "unless-stopped"
+  privileged = true
 
-#   volumes {
-#     container_path = "/"
-#     host_path      = "/rootfs"
-#     read_only      = true
-#   }
-#   volumes {
-#     container_path = "/var/run"
-#     host_path      = "/var/run"
-#     read_only      = false
-#   }
-#   volumes {
-#     container_path = "/sys"
-#     host_path      = "/sys"
-#     read_only      = true
-#   }
-#   volumes {
-#     container_path = "/var/lib/docker"
-#     host_path      = "/var/lib/docker"
-#     read_only      = true
-#   }
+  devices {
+    host_path = "/dev/ksmg"
+  }
 
-#   networks_advanced {
-#     name = docker_network.monitoring.name
-#   }
+  volumes {
+    container_path = "/rootfs"
+    host_path      = "/"
+    read_only      = true
+  }
+  volumes {
+    container_path = "/var/run"
+    host_path      = "/var/run"
+    read_only      = false
+  }
+  volumes {
+    container_path = "/sys"
+    host_path      = "/sys"
+    read_only      = true
+  }
+  volumes {
+    container_path = "/var/lib/docker"
+    host_path      = "/var/lib/docker"
+    read_only      = true
+  }
+  volumes {
+    container_path = "/dev/disk"
+    host_path      = "/dev/disk"
+    read_only      = true
+  }
 
-#   depends_on = [
-#     docker_image.cadvisor,
-#     docker_network.monitoring
-#   ]
-# }
+  networks_advanced {
+    name = var.hostname
+  }
+
+  depends_on = [
+    docker_image.cadvisor
+  ]
+}

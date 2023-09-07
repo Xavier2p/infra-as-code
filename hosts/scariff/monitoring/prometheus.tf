@@ -8,8 +8,8 @@ resource "docker_container" "prometheus" {
   restart = "unless-stopped"
 
   command = [
-    "-config.file=/etc/prometheus/prometheus.yml",
-    "-storage.local.path=/prometheus",
+    "--config.file=/etc/prometheus/prometheus.yml",
+    # "--storage.local.path=/prometheus",
   ]
 
   ports {
@@ -53,15 +53,11 @@ resource "docker_container" "prometheus" {
     value = var.tls_enable
   }
 
-  network_advanced {
-    name = docker_network.monitoring.name
-  }
-  network_advanced {
+  networks_advanced {
     name = var.hostname
   }
 
   depends_on = [
-    docker_image.prometheus,
-    docker_network.monitoring
+    docker_image.prometheus
   ]
 }

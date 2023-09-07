@@ -8,7 +8,7 @@
       ansible.builtin.file:
         path: /docker
         state: directory
-        mode: '0755'
+        mode: '0757'
         recurse: true
         owner: sysadmin
         group: sysadmin
@@ -17,7 +17,7 @@
       ansible.builtin.file:
         path: /infra
         state: directory
-        mode: '0755'
+        mode: '0757'
         recurse: true
         owner: sysadmin
         group: sysadmin
@@ -26,7 +26,7 @@
       ansible.builtin.file:
         path: /docker/{{ item }}
         state: directory
-        mode: '0755'
+        mode: '0757'
       loop:
         - uptime-kuma
         - traefik
@@ -50,7 +50,7 @@
       ansible.builtin.file:
         path: /downloads
         state: directory
-        mode: '0755'
+        mode: '0757'
         recurse: true
         owner: sysadmin
         group: sysadmin
@@ -59,7 +59,7 @@
       ansible.builtin.file:
         path: /downloads/{{ item }}
         state: directory
-        mode: '0755'
+        mode: '0757'
       loop:
         - movies
         - series

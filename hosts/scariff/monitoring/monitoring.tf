@@ -12,11 +12,6 @@ provider "docker" {
   host = "unix:///var/run/docker.sock"
 }
 
-resource "docker_network" "monitoring" {
-  name   = "monitoring"
-  driver = "bridge"
-}
-
 variable "domain_name" {
   type        = string
   default     = "xavier2p.fr"
@@ -57,4 +52,10 @@ variable "tls_enable" {
   type        = bool
   default     = false
   description = "Enable TLS"
+}
+
+variable "adguard_api_password" {
+  type        = string
+  sensitive   = true
+  description = "Adguard API password"
 }
