@@ -38,6 +38,11 @@
         - code-server
         - grafana
         - prometheus
+        # - jellyfin
+        # - jellyseerr
+        # - sonarr
+        # - radarr
+        # - jackett
 
     - name: Assign good right to Traefik
       ansible.builtin.file:

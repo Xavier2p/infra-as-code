@@ -47,7 +47,6 @@ resource "docker_container" "homepage" {
     label = "traefik.http.routers.homepage.tls.certresolver"
     value = var.resolver_ssl
   }
-
   labels {
     label = "traefik.http.routers.homepage.tls"
     value = var.tls_enable
