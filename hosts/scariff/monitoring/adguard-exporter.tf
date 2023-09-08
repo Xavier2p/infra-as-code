@@ -18,7 +18,7 @@ resource "docker_container" "adguard-exporter" {
   ]
 
   networks_advanced {
-    name = var.hostname
+    name = var.network
   }
 
   depends_on = [

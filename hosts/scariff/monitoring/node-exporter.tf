@@ -8,7 +8,7 @@ resource "docker_container" "node_exporter" {
   restart = "unless-stopped"
 
   networks_advanced {
-    name = var.hostname
+    name = var.network
   }
 
   depends_on = [

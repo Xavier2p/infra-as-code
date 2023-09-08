@@ -27,11 +27,10 @@ resource "docker_container" "surrealdb" {
   }
 
   networks_advanced {
-    name = docker_network.main.name
+    name = var.network
   }
 
   depends_on = [
-    docker_image.surrealdb,
-    docker_network.main
+    docker_image.surrealdb
   ]
 }

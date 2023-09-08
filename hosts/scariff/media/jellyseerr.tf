@@ -43,7 +43,7 @@ resource "docker_container" "jellyseerr" {
   }
 
   network_advanced {
-    name = var.hostname
+    name = var.network
   }
 
   depends_on = [

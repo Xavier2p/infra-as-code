@@ -48,7 +48,7 @@ resource "docker_container" "jackett" {
   }
 
   networks_advanced {
-    name = var.hostname
+    name = var.network
   }
 
   depends_on = [

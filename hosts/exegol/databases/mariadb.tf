@@ -25,11 +25,10 @@ resource "docker_container" "mariadb" {
   }
 
   networks_advanced {
-    name = docker_network.main.name
+    name = var.network
   }
 
   depends_on = [
-    docker_container.mariadb,
-    docker_network.main
+    docker_container.mariadb
   ]
 }

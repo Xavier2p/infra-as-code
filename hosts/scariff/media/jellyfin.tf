@@ -60,7 +60,7 @@ resource "docker_container" "jellyfin" {
   }
 
   networks_advanced {
-    name = var.hostname
+    name = var.network
   }
 
   depends_on = [

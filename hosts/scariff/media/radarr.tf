@@ -53,7 +53,7 @@ resource "docker_container" "radarr" {
   }
 
   networks_advanced {
-    name = var.hostname
+    name = var.network
   }
 
   depends_on = [
