@@ -50,9 +50,9 @@ terraform apply
 │   ├── exegol
 │   └── scariff
 ├── stacks              # Stacks of services
-|   ├── monitoring
-|   ├── media
-|   └── cloud
+│   ├── monitoring
+│   ├── media
+│   └── cloud
 ├── main.tf             # Entry point
 ├── providers.tf
 ├── outputs.tf
