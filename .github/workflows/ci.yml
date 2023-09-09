@@ -29,7 +29,7 @@ jobs:
         run: terraform init
 
       - name: Validate
-        run: terraform validate -no-color
+        run: terraform validate
 
       - name: Plan
         run: terraform plan
