@@ -1,0 +1,32 @@
+---
+name: Continuous Integration
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  ci:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v2
+
+      - name: Format
+        run: terraform fmt -check -recursive
+
+      - name: Get
+        run: terraform get
+
+      - name: Init
+        run: terraform init
+
+      - name: Validate
+        run: terraform validate -no-color
+
+      - name: Plan
+        run: terraform plan
