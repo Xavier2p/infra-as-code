@@ -40,3 +40,22 @@ cd ../terraform
 terraform init
 terraform apply
 ``` -->
+
+## Structure
+
+```txt
+./forge
+├── hosts               # Hosts configuration
+│   ├── common          # Common configuration for all hosts
+│   ├── exegol
+│   └── scariff
+├── stacks              # Stacks of services
+|   ├── monitoring
+|   ├── media
+|   └── cloud
+├── main.tf             # Entry point
+├── providers.tf
+├── outputs.tf
+├── variables.tf
+└── forge.tfvars        # Private
+```
