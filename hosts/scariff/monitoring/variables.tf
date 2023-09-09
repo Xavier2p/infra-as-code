@@ -3,7 +3,7 @@ variable "domain_name" {
   description = "Domain name for the server"
 }
 
-variable "network_name" {
+variable "network" {
   type        = string
   description = "Name of the network"
 }
