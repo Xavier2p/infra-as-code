@@ -1,6 +1,10 @@
 module "monitoring" {
   source = "./monitoring"
 
+  providers = {
+    docker = docker
+  }
+
   network              = docker_network.main.name
   hostname             = var.hostname
   path_config          = var.path_config
@@ -14,6 +18,10 @@ module "monitoring" {
 
 # module "media" {
 #   source = "./media"
+
+# providers = {
+#   docker = docker
+# }
 
 #   network        = docker_network.main.name
 #   hostname       = var.hostname
