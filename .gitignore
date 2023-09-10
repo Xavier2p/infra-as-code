@@ -1,12 +1,7 @@
 .env
-# secrets/
-target/
 .terraform/
 *.tfstate*
 *.tfvars
 *.hcl
-tool
-services
-docker
 backup
 forge/

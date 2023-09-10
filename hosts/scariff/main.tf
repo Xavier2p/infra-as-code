@@ -6,9 +6,3 @@ terraform {
     }
   }
 }
-
-provider "docker" {
-  # can be the port in remote connection
-  host = "unix:///var/run/docker.sock"
-  # host = "tcp://${var.host}:2375"
-}
