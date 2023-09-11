@@ -20,3 +20,4 @@
         state: present
       loop:
         - htop
+        - tree

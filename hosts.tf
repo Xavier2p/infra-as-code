@@ -37,13 +37,13 @@ module "exegol" {
   user_surrealdb     = var.user_surrealdb
 }
 
-module "eadu" {
-  source = "./hosts/eadu"
+# module "eadu" {
+#   source = "./hosts/eadu"
 
-  providers = {
-    docker = docker.eadu
-  }
-}
+#   providers = {
+#     docker = docker.eadu
+#   }
+# }
 
 module "common-exegol" {
   source = "./hosts/common"

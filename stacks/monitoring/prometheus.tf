@@ -23,11 +23,6 @@ resource "docker_container" "prometheus" {
     read_only      = false
   }
 
-  ports {
-    internal = 9090
-    external = 9090
-  }
-
   labels {
     label = "traefik.http.services.prometheus.loadbalancer.server.port"
     value = "9090"

@@ -14,11 +14,6 @@ resource "docker_container" "grafana" {
     read_only      = false
   }
 
-  ports {
-    internal = 3000
-    external = 3000
-  }
-
   labels {
     label = "traefik.http.services.grafana.loadbalancer.server.port"
     value = "3000"
