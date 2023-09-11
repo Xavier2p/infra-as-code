@@ -4,40 +4,49 @@
   become: true
 
   tasks:
-      - name: Update apt cache
-        ansible.builtin.apt:
-            update_cache: true
+    - name: Update apt cache
+      ansible.builtin.apt:
+        update_cache: true
 
-      - name: Download Docker Install Script
-        ansible.builtin.get_url:
-            url: https://get.docker.com/
-            dest: /tmp/install-docker.sh
-            mode: '755'
+    - name: Download Docker Install Script
+      ansible.builtin.get_url:
+        url: https://get.docker.com/
+        dest: /tmp/install-docker.sh
+        mode: '755'
 
-      - name: Run Install Script
-        ansible.builtin.shell: /tmp/install-docker.sh
+    - name: Run Install Script
+      ansible.builtin.shell:
+      args:
+        cmd: /tmp/install-docker.sh
+        creates: /usr/bin/docker
 
-      - name: Create Docker Service
-        ansible.builtin.file:
-            path: /etc/systemd/system/docker.service.d
-            state: directory
-            mode: '0755'
+    - name: Create Docker Service
+      ansible.builtin.file:
+        path: /etc/systemd/system/docker.service.d
+        state: directory
+        mode: '0755'
 
-      - name: Create Docker Service Override
-        ansible.builtin.copy:
-            dest: /etc/systemd/system/docker.service.d/startup_options.conf
-            content: |
-                [Service]
-                ExecStart=
-                ExecStart=/usr/bin/dockerd -H tcp://{{ ansible_default_ipv4.address }}:2375 -H unix:///var/run/docker.sock
-            mode: '0644'
+    - name: Create Docker Service Override
+      ansible.builtin.copy:
+        dest: /etc/systemd/system/docker.service.d/startup_options.conf
+        content: |
+          [Service]
+          ExecStart=
+          ExecStart=/usr/bin/dockerd -H tcp://{{ ansible_default_ipv4.address }}:2375 -H unix:///var/run/docker.sock
+        mode: '0644'
 
-      - name: Reload Systemd
-        ansible.builtin.systemd:
-            daemon_reload: true
+    - name: Reload Systemd
+      ansible.builtin.systemd:
+        daemon_reload: true
 
-      - name: Start Docker
-        ansible.builtin.service:
-            name: docker
-            state: restarted
-            enabled: true
+    - name: Restart Docker
+      ansible.builtin.service:
+        name: docker
+        state: restarted
+        enabled: true
+
+    - name: Add user to Docker group
+      ansible.builtin.user:
+        name: '{{ ansible_user }}'
+        groups: docker
+        append: true

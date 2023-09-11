@@ -58,7 +58,7 @@ git clone https://github.com/Xavier2p/infra-as-code.git && cd infra-as-code
 ### #2 Pre-deploy configuration (using Ansible)
 
 ```bash
-# coming soon...
+ansible-playbook -i ansible/hosts.yml -u <USER> -b ansible/playbook.yml
 ```
 
 ### #3 Deploy infrastructure (using Terraform)

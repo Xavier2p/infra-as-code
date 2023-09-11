@@ -1,8 +1,7 @@
 ---
-- name: Initial Config for Hosts
+- name: Create Folders for Configuration
   hosts: all
   become: true
-
   tasks:
     - name: Create Root Docker Folder
       ansible.builtin.file:
@@ -10,17 +9,8 @@
         state: directory
         mode: '0757'
         recurse: true
-        owner: sysadmin
-        group: sysadmin
-
-    - name: Create Infra Folder
-      ansible.builtin.file:
-        path: /infra
-        state: directory
-        mode: '0757'
-        recurse: true
-        owner: sysadmin
-        group: sysadmin
+        owner: '{{ ansible_user }}'
+        group: '{{ ansible_user }}'
 
     - name: Create tree in it
       ansible.builtin.file:
@@ -30,12 +20,11 @@
       loop:
         - uptime-kuma
         - traefik
-        - portainer
+        # - portainer
         - homepage
         - adguard
         - homer
-        - dozzle
-        - code-server
+        # - code-server
         - grafana
         - prometheus
         # - jellyfin
@@ -47,8 +36,9 @@
     - name: Assign good right to Traefik
       ansible.builtin.file:
         path: /docker/traefik/acme.json
-        owner: sysadmin
-        group: sysadmin
+        state: touch
+        owner: '{{ ansible_user }}'
+        group: '{{ ansible_user }}'
         mode: '0600'
 
     - name: Create Downloads Folder
@@ -57,8 +47,8 @@
         state: directory
         mode: '0757'
         recurse: true
-        owner: sysadmin
-        group: sysadmin
+        owner: '{{ ansible_user }}'
+        group: '{{ ansible_user }}'
 
     - name: Create tree in it
       ansible.builtin.file:

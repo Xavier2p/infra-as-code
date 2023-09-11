@@ -1,0 +1,22 @@
+---
+- name: Prepare the environment
+  hosts: all
+  become: true
+  tasks:
+    # Updates the repository cache
+    - name: Update
+      ansible.builtin.apt:
+        update_cache: true
+
+    # Upgrades all packages
+    # - name: Upgrade
+    #   ansible.builtin.apt:
+    #     upgrade: dist
+
+    # Installs the packages
+    - name: Install packages
+      ansible.builtin.apt:
+        name: '{{ item }}'
+        state: present
+      loop:
+        - htop
