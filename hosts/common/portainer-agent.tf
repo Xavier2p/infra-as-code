@@ -24,7 +24,7 @@ resource "docker_container" "portainer_agent" {
   }
 
   networks_advanced {
-    name = var.network.name
+    name = var.network
   }
 
   depends_on = [

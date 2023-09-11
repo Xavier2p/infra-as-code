@@ -19,33 +19,33 @@ resource "docker_container" "grafana" {
     external = 3000
   }
 
-  # labels {
-  #   label = "traefik.http.services.grafana.loadbalancer.server.port"
-  #   value = "3000"
-  # }
-  # labels {
-  #   label = "traefik.http.routers.grafana.rule"
-  #   value = "Host(`monitoring.${var.domain_name}`)"
-  # }
-  # labels {
-  #   label = "traefik.http.routers.grafana.entrypoints"
-  #   value = var.entrypoint
-  # }
-  # labels {
-  #   label = "traefik.enable"
-  #   value = var.traefik_enable
-  # }
-  # labels {
-  #   label = "traefik.http.routers.grafana.tls.certresolver"
-  #   value = var.resolver_ssl
-  # }
-  # labels {
-  #   label = "traefik.http.routers.grafana.tls"
-  #   value = var.tls_enable
-  # }
+  labels {
+    label = "traefik.http.services.grafana.loadbalancer.server.port"
+    value = "3000"
+  }
+  labels {
+    label = "traefik.http.routers.grafana.rule"
+    value = "Host(`monitoring.${var.domain_name}`)"
+  }
+  labels {
+    label = "traefik.http.routers.grafana.entrypoints"
+    value = var.entrypoint
+  }
+  labels {
+    label = "traefik.enable"
+    value = var.traefik_enable
+  }
+  labels {
+    label = "traefik.http.routers.grafana.tls.certresolver"
+    value = var.resolver_ssl
+  }
+  labels {
+    label = "traefik.http.routers.grafana.tls"
+    value = var.tls_enable
+  }
 
   networks_advanced {
-    name = var.network.name
+    name = var.network
   }
 
   depends_on = [

@@ -39,7 +39,7 @@ resource "docker_container" "cadvisor" {
   }
 
   networks_advanced {
-    name = var.network.name
+    name = var.network
   }
 
   depends_on = [
