@@ -21,3 +21,6 @@
       loop:
         - htop
         - tree
+        - zsh
+        - vim
+        - neofetch
