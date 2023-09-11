@@ -1,9 +1,9 @@
 # `/forge` - Infrastructure as Code
 
-[![GitHub top language](https://img.shields.io/github/languages/top/xavier2p/infra-as-code?style=for-the-badge&logo=terraform&label=terraform&color=%237B42BC)](https://www.terraform.io/)
+[![GitHub top language](https://img.shields.io/github/languages/top/xavier2p/infra-as-code?style=for-the-badge&logo=terraform&label=terraform&color=%237B42BC)](https://terraform.io/)
 ![GitHub Workflow Status (with event)](https://img.shields.io/github/actions/workflow/status/xavier2p/infra-as-code/ci.yml?style=for-the-badge&logo=github-actions&label=validation)
-[![Website](https://img.shields.io/website?up_message=UP&down_message=DOWN&url=https%3A%2F%2Fxavier2p.fr&style=for-the-badge&logo=mdbook&label=docs)
-](https://xavier2p.fr)
+[![Website](https://img.shields.io/website?up_message=UP&down_message=DOWN&url=https%3A%2F%2Fxavier2p.github.io%2Ffr&style=for-the-badge&logo=mdbook&label=docs)
+](https://xavier2p.github.io/wiki)
 [![GitHub](https://img.shields.io/github/license/xavier2p/infra-as-code?style=for-the-badge&logo=github&color=yellow)](../LICENSE.md)
 
 > This repository contains the code of `/forge`, my personal infrastructure.
